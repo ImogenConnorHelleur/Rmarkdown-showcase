@@ -19,8 +19,11 @@ output:
 
 library(tidyverse)
 library(readxl)
+library(networkD3)
+
 source("../SMT_dental_slides/03 SMT_plot_functions.R")
 source("../SMT_dental_slides/02 format_SMT_data.R")
+source("../UEC_sankey_slide/UEC_sankey.R")
 #load in raw data
 UDA_calendar_data <- read_excel("../data/UDA_calendar_data.xlsx")
 UDA_scheduled_data <- read_excel("../data/UDA_scheduled_data.xlsx")
@@ -28,6 +31,9 @@ UDA_calendar_data <- rename(UDA_calendar_data, month = data_month)
 UDA_scheduled_data <- rename(UDA_scheduled_data, month = data_month)
 contractor_categories <- readRDS("../data/contractor_categories.RDS")
 prototype_contracts <- read_excel("../data/prototype_contracts.xlsx")
+
+sankey_data <- read_excel("../data/sankey_data.xlsx")
+sankey_grouped <- readRDS("../data/sankey_grouped.rds")
 
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 
@@ -328,8 +334,43 @@ DT::datatable(plot_UDA_UOA_delivery_calendar(data = UDA_calendar_data,
 [Back to agenda](#agenda)
 
 ---
+name: real-example2
+### Real example: UEC CPCS
+
+
+```{r UEC-sankeys, echo=FALSE}
+xaringanExtra::use_panelset()
+```
+ <font size="2">
+.panelset[
+
+.panel[.panel-name[High level]
+```{r sankey1, echo = FALSE, warning = FALSE, message = FALSE, fig.width=14, fig.height=5, fig.align='center'}
+plot_UEC_CPCS_sankey_grouped()
+```
+
+
+]
+.panel[.panel-name[Detail]
+```{r sankey2, echo = FALSE, warning = FALSE, message = FALSE, fig.width=14, fig.height=5, fig.align='center'}
+plot_UEC_CPCS_sankey()
+```
+
+
+]
+]
+
+<font size="2">
+[Back to agenda](#agenda)
+
+---
 name: additional-functionality
 ### Additional functionality
+
+```{r out.width='60%', fig.align="center"}
+knitr::include_graphics("https://media.giphy.com/media/SRwmnX3tGw4pqMXJKS/giphy.gif")
+```
+
 
 <font size="2">
 [Back to agenda](#agenda)
