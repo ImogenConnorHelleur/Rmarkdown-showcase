@@ -1,0 +1,80 @@
+---
+title: "RMarkdown for Automated Reporting"
+subtitle: "PhODs Team - Imogen O'Connor and Tom Dee"
+date: "May 2022"
+output:
+  xaringan::moon_reader:
+    css: [theme.css, nhsr-fonts.css]
+    self_contained: true
+    lib_dir: libs
+    nature:
+      ratio: '16:9'
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+
+#avoid standard form
+options(scipen=999)
+
+```
+
+
+
+### Agenda  
+
+ <font size="5">
+ + What is R and R Markdown
+ + What are the benefits 
+ + Demonstration
+ + Example reports
+ + How to begin using R Markdown in your work
+ + Q&A
+
+
+#### NOTE 
+This is an interactive markdown report.  You can navigate from slide to slide by either clicking the mouse on the screen or by using the cursor keys.  **Press ? for help.** 
+Some pages have selection buttons across regions, click on the region in order to explore the data for that area.  
+This format also works on mobile devices in browser with no further software required, but has been optimised for 16:9 screen ratio.
+
+---
+
+### What is R and RMarkdown?
+
+---
+
+### R vs RMarkdown
+
+---
+
+### Benefits
+
+---
+
+### Demo
+
+---
+
+### How to get started
+
+---
+
+### Additional rescources
+
+ <font size="2">
+
+[Course-led training](https://nhsengland.sharepoint.com/teams/AnalyticalLearningandDevelopment/SitePages/Upcoming-Events.aspx)
+
+[Self-led](https://future.nhs.uk/system/login?nextURL=%2Fconnect%2Eti%2FDataAnalytics%2Fview%3FobjectId%3D22827888#22827888)
+
+[Get started straight away](https://philosopher-analyst.netlify.app/rmd-workshop/)
+
+[RMarkdown Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+
+How to set up and start using github?
+
