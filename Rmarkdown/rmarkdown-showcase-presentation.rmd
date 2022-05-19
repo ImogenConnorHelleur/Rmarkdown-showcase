@@ -17,6 +17,18 @@ output:
 
 ```{r setup, include=FALSE}
 
+library(tidyverse)
+library(readxl)
+source("../SMT_dental_slides/03 SMT_plot_functions.R")
+source("../SMT_dental_slides/02 format_SMT_data.R")
+#load in raw data
+UDA_calendar_data <- read_excel("../data/UDA_calendar_data.xlsx")
+UDA_scheduled_data <- read_excel("../data/UDA_scheduled_data.xlsx")
+UDA_calendar_data <- rename(UDA_calendar_data, month = data_month)
+UDA_scheduled_data <- rename(UDA_scheduled_data, month = data_month)
+contractor_categories <- readRDS("../data/contractor_categories.RDS")
+prototype_contracts <- read_excel("../data/prototype_contracts.xlsx")
+
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 
 #avoid standard form
@@ -105,7 +117,212 @@ knitr::include_graphics("rmarkdown_figures/benefits.png")
 
 ---
 name: real-examples
-### Real examples
+### Real example: SMT Dental Pack
+
+```{r xaringan-panelset-UDA-activity, echo=FALSE}
+xaringanExtra::use_panelset()
+```
+ <font size="2">
+.panelset[
+
+.panel[.panel-name[National]
+```{r UDA_activity_Calendar1, echo = FALSE, warning = FALSE, message = FALSE, fig.width=14, fig.height=5, fig.align='center'}
+plot_UDA_UOA_delivery_calendar(data = UDA_calendar_data, 
+                                  scheduled_data = UDA_scheduled_data,
+                                  contractor_cats = contractor_categories,
+                                  UDAorUOA = "UDA",
+                                  level = "National",
+                                  region_STP_name = NULL,
+                                  remove_prototypes = T,
+                                  regional_lines = F, 
+                                  STP_lines = F,
+                                  cat_lines = F,
+                                  plotChart = T)
+```
+
+* This graph shows the average monthly performance of the **`r get_num_contracts(level = "National", region_STP_name = NULL)`** GDS/PDS/PDS+ contracts scaled up by 12 months measured against the delivery thresholds (60% for Apr-Sep 21, 65% for Oct-Dec, 85% for Jan-Mar and 95% for Apr-Jun 22).
+* N.B. Previous month's delivery may be marginally higher to what was reported last month
+due to the nature of calendar data (see slide 3). This month's figure is likely to be under-reported. 
+
+]
+.panel[.panel-name[South East]
+```{r UDA_activity_Calendar2, echo = FALSE, warning = FALSE, message = FALSE, fig.width=14, fig.height=5, fig.align='center'}
+plot_UDA_UOA_delivery_calendar(data = UDA_calendar_data, 
+                                  scheduled_data = UDA_scheduled_data,
+                                  contractor_cats = contractor_categories,
+                                  UDAorUOA = "UDA",
+                                  level = "Regional",
+                                  region_STP_name = "South East",
+                                  remove_prototypes = T,
+                                  regional_lines = F, 
+                                  STP_lines = F,
+                                  cat_lines = F,
+                                  plotChart = T)
+```
+
+* This graph shows the average monthly performance of the **`r get_num_contracts(level = "Regional", region_STP_name = "South East")`** GDS/PDS/PDS+ contracts scaled up by 12 months measured against the delivery thresholds (60% for Apr-Sep 21, 65% for Oct-Dec, 85% for Jan-Mar and 95% for Apr-Jun 22).
+* N.B. Previous month's delivery may be marginally higher to what was reported last month
+due to the nature of calendar data (see slide 3). This month's figure is likely to be under-reported. 
+
+]
+.panel[.panel-name[South West]
+```{r UDA_activity_Calendar3, echo = FALSE, warning = FALSE, message = FALSE, fig.width=14, fig.height=5, fig.align='center'}
+plot_UDA_UOA_delivery_calendar(data = UDA_calendar_data, 
+                                  scheduled_data = UDA_scheduled_data,
+                                  contractor_cats = contractor_categories,
+                                  UDAorUOA = "UDA",
+                                  level = "Regional",
+                                  region_STP_name = "South West",
+                                  remove_prototypes = T,
+                                  regional_lines = F, 
+                                  STP_lines = F,
+                                  cat_lines = F,
+                                  plotChart = T)
+```
+
+* This graph shows the average monthly performance of the **`r get_num_contracts(level = "Regional", region_STP_name = "South West")`** GDS/PDS/PDS+ contracts scaled up by 12 months measured against the delivery thresholds (60% for Apr-Sep 21, 65% for Oct-Dec, 85% for Jan-Mar and 95% for Apr-Jun 22).
+* N.B. Previous month's delivery may be marginally higher to what was reported last month
+due to the nature of calendar data (see slide 3). This month's figure is likely to be under-reported. 
+
+]
+.panel[.panel-name[North West]
+```{r UDA_activity_Calendar4, echo = FALSE, warning = FALSE, message = FALSE, fig.width=14, fig.height=5, fig.align='center'}
+plot_UDA_UOA_delivery_calendar(data = UDA_calendar_data, 
+                                  scheduled_data = UDA_scheduled_data,
+                                  contractor_cats = contractor_categories,
+                                  UDAorUOA = "UDA",
+                                  level = "Regional",
+                                  region_STP_name = "North West",
+                                  remove_prototypes = T,
+                                  regional_lines = F, 
+                                  STP_lines = F,
+                                  cat_lines = F,
+                                  plotChart = T)
+```
+
+* This graph shows the average monthly performance of the **`r get_num_contracts(level = "Regional", region_STP_name = "North West")`** GDS/PDS/PDS+ contracts scaled up by 12 months measured against the delivery thresholds (60% for Apr-Sep 21, 65% for Oct-Dec, 85% for Jan-Mar and 95% for Apr-Jun 22).
+* N.B. Previous month's delivery may be marginally higher to what was reported last month
+due to the nature of calendar data (see slide 3). This month's figure is likely to be under-reported. 
+
+]
+.panel[.panel-name[North East and Yorkshire]
+```{r UDA_activity_Calendar5, echo = FALSE, warning = FALSE, message = FALSE, fig.width=14, fig.height=5, fig.align='center'}
+plot_UDA_UOA_delivery_calendar(data = UDA_calendar_data, 
+                                  scheduled_data = UDA_scheduled_data,
+                                  contractor_cats = contractor_categories,
+                                  UDAorUOA = "UDA",
+                                  level = "Regional",
+                                  region_STP_name = "North East and Yorkshire",
+                                  remove_prototypes = T,
+                                  regional_lines = F, 
+                                  STP_lines = F,
+                                  cat_lines = F,
+                                  plotChart = T)
+```
+
+* This graph shows the average monthly performance of the **`r get_num_contracts(level = "Regional", region_STP_name = "North East and Yorkshire")`** GDS/PDS/PDS+ contracts scaled up by 12 months measured against the delivery thresholds (60% for Apr-Sep 21, 65% for Oct-Dec, 85% for Jan-Mar and 95% for Apr-Jun 22).
+* N.B. Previous month's delivery may be marginally higher to what was reported last month
+due to the nature of calendar data (see slide 3). This month's figure is likely to be under-reported. 
+
+]
+.panel[.panel-name[London]
+```{r UDA_activity_Calendar6, echo = FALSE, warning = FALSE, message = FALSE, fig.width=14, fig.height=5, fig.align='center'}
+plot_UDA_UOA_delivery_calendar(data = UDA_calendar_data, 
+                                  scheduled_data = UDA_scheduled_data,
+                                  contractor_cats = contractor_categories,
+                                  UDAorUOA = "UDA",
+                                  level = "Regional",
+                                  region_STP_name = "London",
+                                  remove_prototypes = T,
+                                  regional_lines = F, 
+                                  STP_lines = F,
+                                  cat_lines = F,
+                                  plotChart = T)
+```
+
+* This graph shows the average monthly performance of the **`r get_num_contracts(level = "Regional", region_STP_name = "London")`** GDS/PDS/PDS+ contracts scaled up by 12 months measured against the delivery thresholds (60% for Apr-Sep 21, 65% for Oct-Dec, 85% for Jan-Mar and 95% for Apr-Jun 22).
+* N.B. Previous month's delivery may be marginally higher to what was reported last month
+due to the nature of calendar data (see slide 3). This month's figure is likely to be under-reported. 
+
+]
+.panel[.panel-name[Midlands]
+```{r UDA_activity_Calendar7, echo = FALSE, warning = FALSE, message = FALSE, fig.width=14, fig.height=5, fig.align='center'}
+plot_UDA_UOA_delivery_calendar(data = UDA_calendar_data, 
+                                  scheduled_data = UDA_scheduled_data,
+                                  contractor_cats = contractor_categories,
+                                  UDAorUOA = "UDA",
+                                  level = "Regional",
+                                  region_STP_name = "Midlands",
+                                  remove_prototypes = T,
+                                  regional_lines = F, 
+                                  STP_lines = F,
+                                  cat_lines = F,
+                                  plotChart = T)
+```
+
+* This graph shows the average monthly performance of the **`r get_num_contracts(level = "Regional", region_STP_name = "Midlands")`** GDS/PDS/PDS+ contracts scaled up by 12 months measured against the delivery thresholds (60% for Apr-Sep 21, 65% for Oct-Dec, 85% for Jan-Mar and 95% for Apr-Jun 22).
+* N.B. Previous month's delivery may be marginally higher to what was reported last month
+due to the nature of calendar data (see slide 3). This month's figure is likely to be under-reported. 
+
+]
+.panel[.panel-name[East of England]
+```{r UDA_activity_Calendar8, echo = FALSE, warning = FALSE, message = FALSE, fig.width=14, fig.height=5, fig.align='center'}
+plot_UDA_UOA_delivery_calendar(data = UDA_calendar_data, 
+                                  scheduled_data = UDA_scheduled_data,
+                                  contractor_cats = contractor_categories,
+                                  UDAorUOA = "UDA",
+                                  level = "Region",
+                                  region_STP_name = "East of England",
+                                  remove_prototypes = T,
+                                  regional_lines = F, 
+                                  STP_lines = F,
+                                  cat_lines = F,
+                                  plotChart = T)
+```
+
+* This graph shows the average monthly performance of the **`r get_num_contracts(level = "Regional", region_STP_name = "East of England")`** GDS/PDS/PDS+ contracts scaled up by 12 months measured against the delivery thresholds (60% for Apr-Sep 21, 65% for Oct-Dec, 85% for Jan-Mar and 95% for Apr-Jun 22).
+* N.B. Previous month's delivery may be marginally higher to what was reported last month
+due to the nature of calendar data (see slide 3). This month's figure is likely to be under-reported. 
+
+]
+.panel[.panel-name[All]
+```{r UDA_activity_Calendar9, echo = FALSE, warning = FALSE, message = FALSE, fig.width=14, fig.height=5, fig.align='center'}
+plot_UDA_UOA_delivery_calendar(data = UDA_calendar_data,
+                                  scheduled_data = UDA_scheduled_data,
+                                  contractor_cats = contractor_categories,
+                                  UDAorUOA = "UDA",
+                                  level = "National",
+                                  region_STP_name = NULL,
+                                  remove_prototypes = T,
+                                  regional_lines = T,
+                                  STP_lines = F,
+                                  cat_lines = F,
+                                  plotChart = T)
+```
+
+]
+.panel[.panel-name[National level data]
+```{r echo=FALSE, results='asis',warning=FALSE, fig.width=3, fig.height=3}
+
+DT::datatable(plot_UDA_UOA_delivery_calendar(data = UDA_calendar_data, 
+                                  scheduled_data = UDA_scheduled_data,
+                                  contractor_cats = contractor_categories,
+                                  UDAorUOA = "UDA",
+                                  level = "National",
+                                  region_STP_name = NULL,
+                                  remove_prototypes = T,
+                                  regional_lines = F, 
+                                  STP_lines = F,
+                                  cat_lines = F,
+                                  plotChart = F),
+              rownames=FALSE,  extensions = 'Buttons', options = list(dom='Bt', buttons = c('excel'),
+  bPaginate = FALSE, pageLength=35, columnDefs = list(list(className = 'dt-left', targets = 0:4)),searching=FALSE,scrollY ='350px', scrollX ='500px'))%>%
+  DT::formatStyle(columns = 1:5, fontSize = '90%')
+```
+]
+]
+
+
 
 <font size="2">
 [Back to agenda](#agenda)
