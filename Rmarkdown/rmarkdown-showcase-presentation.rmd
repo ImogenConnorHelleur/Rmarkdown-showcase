@@ -4,7 +4,7 @@ subtitle: "PhODs Team - Imogen O'Connor and Tom Dee"
 date: "May 2022"
 output:
   xaringan::moon_reader:
-    css: [theme.css, nhsr-fonts.css]
+    css: [theme.css, nhsr-fonts.css, default]
     self_contained: true
     lib_dir: libs
     nature:
@@ -24,51 +24,112 @@ options(scipen=999)
 
 ```
 
-
+name: agenda
 
 ### Agenda  
 
  <font size="5">
- + What is R and R Markdown
- + What are the benefits 
- + Demonstration
- + Example reports
- + How to begin using R Markdown in your work
+ + [What is R and R Markdown](#what-is-r)
+ + [What are the benefits](#benefits)
+ + [Real examples](#real-examples)
+ + [Additional functionality](#additional-functionality)
+ + [Resources](#resources)
  + Q&A
 
 
+
+
+<font size="2">
 #### NOTE 
 This is an interactive markdown report.  You can navigate from slide to slide by either clicking the mouse on the screen or by using the cursor keys.  **Press ? for help.** 
 Some pages have selection buttons across regions, click on the region in order to explore the data for that area.  
 This format also works on mobile devices in browser with no further software required, but has been optimised for 16:9 screen ratio.
 
 ---
-
+name: what-is-r
 ### What is R and RMarkdown?
 
+```{r out.width='75%', fig.align="center"}
+knitr::include_graphics("rmarkdown_figures/what_is_rmarkdown.png")
+```
+
+<font size="2">
+[Back to agenda](#agenda)
+
 ---
+name: r-and-rmarkdown
+### R and RMarkdown
 
-### R vs RMarkdown
+.pull-left[
+#### R
+
++ **What?** – R is an open-source programming language
++ **Where?** – Data science server – R studio
+
+```{r out.width='8%', fig.align="centre"}
+knitr::include_graphics("rmarkdown_figures/rlogo.png")
+```
+
++ **Why?** – Useful for statistics, data manipulation, analysis and visualisation.
++ **Why again?** – reproducible, transparent and scalable
+
+]
+
+.pull-right[
+#### RMarkdown
+
++ **What?** – R markdown is a 'markup' variant of R
++ **Where?** – Data science server – R studio
+
+```{r out.width='65%', fig.align="centre"}
+knitr::include_graphics("rmarkdown_figures/newfile.png")
+```
+
++ **Why?** – An easy-to-read file incorporating text, images, headers, download links, buttons etc...
+
+]
+
+<font size="2">
+[Back to agenda](#agenda)
 
 ---
-
+name: benefits
 ### Benefits
 
+```{r out.width='85%', fig.align="center"}
+knitr::include_graphics("rmarkdown_figures/benefits.png")
+```
+
+<font size="2">
+[Back to agenda](#agenda)
+
 ---
+name: real-examples
+### Real examples
 
-### Demo
+<font size="2">
+[Back to agenda](#agenda)
 
 ---
+name: additional-functionality
+### Additional functionality
 
-### How to get started
+<font size="2">
+[Back to agenda](#agenda)
+
 
 ---
-
-### Additional rescources
+name: resources
+### Resources
 
  <font size="2">
+ Links to additional resources:
 
 [Course-led training](https://nhsengland.sharepoint.com/teams/AnalyticalLearningandDevelopment/SitePages/Upcoming-Events.aspx)
+
+```{r out.width='60%', fig.align="center"}
+knitr::include_graphics("rmarkdown_figures/resources.png")
+```
 
 [Self-led](https://future.nhs.uk/system/login?nextURL=%2Fconnect%2Eti%2FDataAnalytics%2Fview%3FobjectId%3D22827888#22827888)
 
@@ -76,5 +137,11 @@ This format also works on mobile devices in browser with no further software req
 
 [RMarkdown Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
 
-How to set up and start using github?
+[How to set up and start using github](https://docs.github.com/en/get-started/quickstart/hello-world)
+
+[Basic GitHub guide created for PhODs team](https://nhsengland.sharepoint.com/:p:/r/sites/PrimaryCareCollaborations-PCSCAnalystsVirtualTeam/Shared%20Documents/PCSC%20Analysts%20Virtual%20Team/Skills%20Exchange%20Recordings/Rmarkdown%2020May2022/Github%20Workflow%20for%20PhODs%20Team%20v2.pptx?d=w285cc638be3b4f9e9fa234f171c1d4d6&csf=1&web=1&e=g943pT)
+
+[The code for this report](https://github.com/ImogenConnorHelleur/Rmarkdown-showcase)
+
+
 
