@@ -352,14 +352,14 @@ xaringanExtra::use_panelset()
 .panelset[
 
 .panel[.panel-name[High level]
-```{r sankey1, echo = FALSE, warning = FALSE, message = FALSE, fig.width=14, fig.height=5, fig.align='center'}
+```{r sankey1, echo = FALSE, warning = FALSE, message = FALSE, fig.align='center'}
 plot_UEC_CPCS_sankey_grouped()
 ```
 
 
 ]
 .panel[.panel-name[Detail]
-```{r sankey2, echo = FALSE, warning = FALSE, message = FALSE, fig.width=14, fig.height=5, fig.align='center'}
+```{r sankey2, echo = FALSE, warning = FALSE, message = FALSE, fig.align='center'}
 plot_UEC_CPCS_sankey()
 ```
 
