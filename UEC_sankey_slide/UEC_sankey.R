@@ -36,7 +36,9 @@ plot_UEC_CPCS_sankey <- function(data = sankey_data){
                      Source = "IDsource", Target = "IDtarget",
                      Value = "value", NodeID = "name", 
                      sinksRight=FALSE,
-                     colourScale=my_color, NodeGroup="group")
+                     colourScale=my_color, NodeGroup="group",
+                     fontSize = 16,
+                     height = 400, width = 1300)
   p
   
   
@@ -70,7 +72,8 @@ plot_UEC_CPCS_sankey_grouped <- function(data = sankey_grouped){
                      Value = "value", NodeID = "name", 
                      sinksRight=FALSE,
                      colourScale=my_color, NodeGroup="group",
-                     fontSize = 14
+                     fontSize = 17,
+                     height = 400, width = 1300
   )
   p
   
